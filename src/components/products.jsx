@@ -64,13 +64,6 @@ const ProductsGrid = () => {
       oldPrice: 180000,
       images: ["/img/product2.jpeg", "/img/product.jpeg", "/img/product.jpeg"],
     },
-    {
-      id: 9,
-      name: "Lego",
-      price: 150000,
-      oldPrice: 180000,
-      images: ["/img/product.jpeg", "/img/product.jpeg", "/img/product.jpeg"],
-    },
   ];
 
   return (

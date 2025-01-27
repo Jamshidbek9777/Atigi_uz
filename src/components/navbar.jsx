@@ -119,8 +119,8 @@ const Navbar = () => {
               }}
             >
               <Dropdown
-                placement="bottomCenter"
-                trigger={["hover"]}
+                placement="bottom"
+                trigger={["click"]}
                 menu={{
                   items,
                 }}

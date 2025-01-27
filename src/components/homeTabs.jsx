@@ -43,39 +43,74 @@ const HomeTabs = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const tabsData = [
+    {
+      bg: "/img/homeTabsBg1.jpeg",
+      icon: "/img/bearTab.png",
+      title: "Yumshoq o'yinchoqlar",
+      color: "#00C2FC",
+    },
+    {
+      bg: "/img/homeTabsBg2.jpeg",
+      icon: "/img/bearTab.png",
+      title: "Mashinalar",
+      color: "#33B969",
+    },
+    {
+      bg: "/img/homeTabsBg3.jpeg",
+      icon: "/img/bearTab.png",
+      title: "Pazllar",
+      color: "#F72A16",
+    },
+    {
+      bg: "/img/homeTabsBg4.jpeg",
+      icon: "/img/bearTab.png",
+      title: "Sport jihozlari",
+      color: "#FADF12",
+    },
+  ];
+
   return (
     <Wrapper>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4 md:pt-8 select-none">
-        {[
-          "/img/homeTabsBg1.jpeg",
-          "/img/homeTabsBg2.jpeg",
-          "/img/homeTabsBg3.jpeg",
-          "/img/homeTabsBg4.jpeg",
-        ].map((bg, index) => (
+        {tabsData.map((tab, index) => (
           <div
             key={index}
-            className="tab flex items-center justify-center   rounded-lg md:rounded-xl h-[50px] sm:h-[150px] md:h-[300px] cursor-pointer"
+            className="tab group flex items-center justify-center rounded-lg md:rounded-xl h-[50px] sm:h-[150px] md:h-[300px] cursor-pointer transition-transform duration-300 hover:scale-105"
             style={{
               backgroundImage:
-                !isSmallScreen && inView[index] ? `url(${bg})` : "none",
+                !isSmallScreen && inView[index] ? `url(${tab.bg})` : "none",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
             {isSmallScreen ? (
-              <div className="flex items-center gap-2">
-                <span className="text-[24px] sm:text-[32px] md:text-[40px]">
-                  🎁
-                </span>{" "}
-                {/* Replace with your icon */}
+              <div className="flex items-center gap-2 border p-2 w-full">
+                <img
+                  src={tab.icon}
+                  alt={tab.title}
+                  className="w-[30px] h-[30px] sm:w-[40px] sm:h-[40px]"
+                />
                 <h1 className="text-[14px] sm:text-[16px] text-gray-800 text-center">
-                  Yumshoq o'yinchoqlar
+                  {tab.title}
                 </h1>
               </div>
             ) : (
-              <h1 className="text-[18px] sm:text-[20px] md:text-[24px] text-white text-center">
-                Yumshoq o'yinchoqlar
-              </h1>
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-[40px] h-[40px] p-2 mb-2 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:translate-y-14 md:group-hover:translate-y-24"
+                  style={{ backgroundColor: tab.color }}
+                >
+                  <img
+                    src={tab.icon}
+                    alt={tab.title}
+                    className="w-full h-full"
+                  />
+                </div>
+                <h1 className="text-[18px] sm:text-[20px] md:text-[24px] text-white text-center transition-all duration-300 group-hover:translate-y-14 md:group-hover:translate-y-24 group-hover:opacity-80">
+                  {tab.title}
+                </h1>
+              </div>
             )}
           </div>
         ))}
