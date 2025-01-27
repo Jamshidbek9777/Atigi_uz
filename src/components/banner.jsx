@@ -27,7 +27,7 @@ const Banner = () => {
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="w-full max-h-[520px] rounded-[36px]"
+          className="w-full max-h-[520px] rounded-2xl"
           pagination={{
             dynamicBullets: true,
             clickable: true,
@@ -44,7 +44,7 @@ const Banner = () => {
                 <img
                   src={src}
                   alt={`Slide ${index + 1}`}
-                  className="w-full h-auto object-contain rounded-[36px]"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </SwiperSlide>

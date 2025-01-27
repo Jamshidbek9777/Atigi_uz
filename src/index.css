@@ -4,15 +4,15 @@
 
 /* Custom Font */
 @font-face {
-  font-family: "Circe Bold";
+  font-family: "Circe";
   src: url("/fonts/CRC55.otf") format("opentype");
-  font-weight: bold;
   font-style: normal;
 }
 
 body,
 .ant-typography {
-  font-family: "Circe Bold", serif;
+  font-family: "Circe", serif;
+  background-color: #fafafa;
 }
 
 h1,
@@ -30,5 +30,5 @@ h6 {
 }
 
 .ant-dropdown-menu {
-  font-family: "Circe Bold", serif !important;
+  font-family: "Circe", serif !important;
 }
