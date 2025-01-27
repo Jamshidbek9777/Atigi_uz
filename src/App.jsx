@@ -11,7 +11,7 @@ function App() {
         <Banner />
         <HomeTabs />
         <Wrapper>
-          <div className="grid grid-cols-12 gap-4 mt-4 ">
+          <div className="flex gap-0 md:gap-4 mt-4">
             {/* Sidebar */}
 
             <div className="col-span-2">

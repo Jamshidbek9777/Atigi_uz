@@ -3,7 +3,7 @@ import Wrapper from "./wrapper";
 
 const Topbar = () => {
   return (
-    <div className="bg-[#394B59]  select-none">
+    <div className="bg-[#394B59]  select-none hidden md:flex">
       <Wrapper>
         <div className="flex justify-between items-center h-8">
           <div className="flex items-center">

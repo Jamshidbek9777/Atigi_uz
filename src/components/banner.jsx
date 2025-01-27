@@ -27,7 +27,7 @@ const Banner = () => {
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="w-full max-h-[520px] rounded-2xl"
+          className="w-full max-h-[520px]  rounded-lg md:rounded-xl"
           pagination={{
             dynamicBullets: true,
             clickable: true,
@@ -40,7 +40,7 @@ const Banner = () => {
             "/img/slider2.png",
           ].map((src, index) => (
             <SwiperSlide key={index}>
-              <div className="w-full relative overflow-hidden">
+              <div className="w-full  relative overflow-hidden">
                 <img
                   src={src}
                   alt={`Slide ${index + 1}`}
@@ -52,7 +52,7 @@ const Banner = () => {
         </Swiper>
 
         <button
-          className="z-[888] absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-black p-4 rounded-full shadow-lg"
+          className="z-[888] hidden md:flex absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-black p-4 rounded-full shadow-lg"
           onClick={handlePrev}
         >
           <svg
@@ -71,7 +71,7 @@ const Banner = () => {
           </svg>
         </button>
         <button
-          className="z-[888] absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-black p-4 rounded-full shadow-lg"
+          className="z-[888] hidden md:flex absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-black p-4 rounded-full shadow-lg"
           onClick={handleNext}
         >
           <svg

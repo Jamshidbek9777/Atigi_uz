@@ -4,7 +4,7 @@ import { Checkbox, Radio } from "antd";
 const Sidebar = () => {
   return (
     <>
-      <div className="flex flex-col w-64 select-none">
+      <div className="hidden flex-col w-64 select-none md:flex">
         <h1 className="text-2xl">Filters</h1>
         <aside className="">
           <div className="bg-white p-4 rounded-xl mb-2">
