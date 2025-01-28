@@ -98,7 +98,7 @@ const HomeTabs = () => {
             ) : (
               <div className="flex items-center gap-2">
                 <div
-                  className="w-[40px] h-[40px] p-2 mb-2 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:translate-y-14 md:group-hover:translate-y-24"
+                  className="w-[40px] h-[40px] p-2 mb-2 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:translate-y-14 md:group-hover:translate-y-28"
                   style={{ backgroundColor: tab.color }}
                 >
                   <img
@@ -107,7 +107,7 @@ const HomeTabs = () => {
                     className="w-full h-full"
                   />
                 </div>
-                <h1 className="text-[18px] sm:text-[20px] md:text-[24px] text-white text-center transition-all duration-300 group-hover:translate-y-14 md:group-hover:translate-y-24 group-hover:opacity-80">
+                <h1 className="text-[18px] sm:text-[20px] md:text-[24px] text-white text-center transition-all duration-300 group-hover:translate-y-14 md:group-hover:translate-y-28 group-hover:opacity-80">
                   {tab.title}
                 </h1>
               </div>

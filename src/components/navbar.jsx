@@ -162,10 +162,12 @@ const Navbar = () => {
               <PiGlobeSimpleBold size={30} color="#3D2A99" />
               <h1 className="text-[#3D2A99] text-xl hidden xl:flex">Uzbek</h1>
             </div>
-            <div className=" hidden md:flex items-center gap-[2px] cursor-pointer hover:bg-[#B0ECFE] p-2 rounded-[10px] transition-all ease-in-out">
-              <IoMdCart size={30} color="#3D2A99" />
-              <h1 className="text-[#3D2A99] text-xl hidden xl:flex">Cart</h1>
-            </div>
+            <a href="/cart">
+              <div className=" hidden md:flex items-center gap-[2px] cursor-pointer hover:bg-[#B0ECFE] p-2 rounded-[10px] transition-all ease-in-out">
+                <IoMdCart size={30} color="#3D2A99" />
+                <h1 className="text-[#3D2A99] text-xl hidden xl:flex">Cart</h1>
+              </div>
+            </a>
             <div className="flex items-center gap-[2px] cursor-pointer hover:bg-[#B0ECFE] p-2 rounded-[10px] transition-all ease-in-out">
               <IoPersonCircle size={30} color="#3D2A99" />
               <h1 className="text-[#3D2A99] text-xl hidden xl:flex">Login</h1>

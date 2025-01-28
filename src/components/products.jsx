@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { HiShoppingCart } from "react-icons/hi";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { TbFilter } from "react-icons/tb";
 
 const ProductsGrid = () => {
   const products = [
@@ -68,7 +69,12 @@ const ProductsGrid = () => {
 
   return (
     <main>
-      <h2 className="font-bold text-lg mb-4">Top mahsulotlar</h2>
+      <div className="flex justify-between pb-4">
+        <h2 className="font-bold text-xl mb-2">Top mahsulotlar</h2>
+        <div>
+          <TbFilter size={30} />
+        </div>
+      </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((product) => (
           <div
@@ -79,7 +85,6 @@ const ProductsGrid = () => {
               <a href="/detail">
                 <Swiper
                   modules={[Navigation, Pagination]}
-                  // spaceBetween={10}
                   loop={true}
                   slidesPerView={1}
                   autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -171,7 +176,6 @@ const ProductsGrid = () => {
           opacity: 1;
         }
 
-        /* Pagination styles per card */
         .swiper-pagination-custom {
           display: flex;
           justify-content: center;
