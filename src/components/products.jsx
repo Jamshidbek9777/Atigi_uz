@@ -76,37 +76,39 @@ const ProductsGrid = () => {
             className="bg-white rounded-lg shadow p-2 flex flex-col justify-between"
           >
             <div className="overflow-hidden rounded-lg relative group card-container">
-              <Swiper
-                modules={[Navigation, Pagination]}
-                // spaceBetween={10}
-                loop={true}
-                slidesPerView={1}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
-                navigation={{
-                  prevEl: `.custom-prev-${product.id}`,
-                  nextEl: `.custom-next-${product.id}`,
-                }}
-                pagination={{
-                  el: `.swiper-pagination-${product.id}`,
-                  clickable: true,
-                  renderBullet: (index, className) => {
-                    return `
+              <a href="/detail">
+                <Swiper
+                  modules={[Navigation, Pagination]}
+                  // spaceBetween={10}
+                  loop={true}
+                  slidesPerView={1}
+                  autoplay={{ delay: 3000, disableOnInteraction: false }}
+                  navigation={{
+                    prevEl: `.custom-prev-${product.id}`,
+                    nextEl: `.custom-next-${product.id}`,
+                  }}
+                  pagination={{
+                    el: `.swiper-pagination-${product.id}`,
+                    clickable: true,
+                    renderBullet: (index, className) => {
+                      return `
                       <span class="${className} custom-pagination-line"></span>
                     `;
-                  },
-                }}
-                className="product-carousel card-container"
-              >
-                {product.images.map((img, index) => (
-                  <SwiperSlide key={index}>
-                    <img
-                      src={img}
-                      alt={`${product.name} - ${index}`}
-                      className="object-cover w-full h-[234px] transition-transform duration-300 hover:scale-105"
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+                    },
+                  }}
+                  className="product-carousel card-container"
+                >
+                  {product.images.map((img, index) => (
+                    <SwiperSlide key={index}>
+                      <img
+                        src={img}
+                        alt={`${product.name} - ${index}`}
+                        className="object-cover w-full h-[234px] transition-transform duration-300 hover:scale-105"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </a>
 
               <div className="absolute z-50 top-1/2 left-0 right-0 flex justify-between px-1 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <button

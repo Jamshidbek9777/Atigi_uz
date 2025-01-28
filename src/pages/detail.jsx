@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Wrapper from "../components/wrapper";
 
-const Cart = () => {
+const DetailProduct = () => {
   const [selectedImage, setSelectedImage] = useState("/img/cart1.png");
   const [quantity, setQuantity] = useState(1);
 
@@ -9,38 +9,56 @@ const Cart = () => {
     "/img/cart1.png",
     "/img/product.jpeg",
     "/img/cart1.png",
-    "/img/product.jpeg",
+    "/img/product2.jpeg",
+    "/img/detail2.jpeg",
   ];
 
   const colors = ["purple", "yellow", "green", "blue", "red"];
 
   return (
     <Wrapper>
-      <div className="flex flex-col md:flex-row gap-8 mt-4">
-        {/* Product Images */}
-        <div className="md:w-1/2">
-          {/* Main Product Image */}
-          <div className="bg-[#E5F1FF] rounded-md p-4 mb-4 flex justify-center">
+      <style jsx global>{`
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 1px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background-color: #c0c0c0;
+          border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background-color: #a0a0a0;
+        }
+
+        ::-webkit-scrollbar-track {
+          background-color: #f0f0f0;
+        }
+      `}</style>
+      <div className="flex flex-col md:flex-row gap-8 mt-4 select-none">
+        <div className="md:w-1/2 w-full">
+          <div className="bg-[#E5F1FF] rounded-md p-4 mb-4 flex justify-center items-center">
             <img
               src={selectedImage}
               alt="Product"
-              className=" max-h-[430px] rounded-md"
+              className="w-full h-[300px] md:h-[430px] object-contain rounded-md"
             />
           </div>
 
-          {/* Thumbnails */}
-          <div className="flex gap-2 overflow-x-auto max-w-full md:max-w-[600px]">
+          <div className="flex gap-2 overflow-x-auto max-w-full h-[100px] md:h-[140px] w-full">
             {images.map((img, index) => (
-              <div key={index} className="flex-shrink-0 bg-red-500 p-2">
+              <div
+                key={index}
+                className={`flex-shrink-0 p-2 rounded-md cursor-pointer transition-all duration-300 ${
+                  selectedImage === img ? "border-2 border-blue-500" : "border"
+                }`}
+                onClick={() => setSelectedImage(img)}
+              >
                 <img
                   src={img}
                   alt={`Thumbnail ${index + 1}`}
-                  className={`w-[120px] h-[120px] md:w-[180px] md:h-[140px] rounded-md cursor-pointer ${
-                    selectedImage === img
-                      ? "border-2 border-blue-500"
-                      : "border"
-                  }`}
-                  onClick={() => setSelectedImage(img)}
+                  className="w-[80px] md:w-[120px] h-[80px] md:h-[120px] object-cover rounded-md"
                 />
               </div>
             ))}
@@ -48,7 +66,7 @@ const Cart = () => {
         </div>
 
         {/* Product Description */}
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 w-full">
           <h1 className="text-2xl font-bold mb-2">Ford Mustang o‘yinchog‘i</h1>
           <div className="flex items-center gap-2 mb-4">
             <div className="flex text-yellow-400">
@@ -79,7 +97,7 @@ const Cart = () => {
               {colors.map((color, index) => (
                 <div
                   key={index}
-                  className={`w-8 h-8 rounded-full cursor-pointer border bg-${color}-500`}
+                  className={`w-8 h-8 rounded-full cursor-pointer border border-gray-300 bg-${color}-500 transition-all duration-300 hover:scale-110`}
                 ></div>
               ))}
             </div>
@@ -88,14 +106,14 @@ const Cart = () => {
           {/* Quantity Selector */}
           <div className="flex items-center gap-4 mb-6">
             <button
-              className="px-4 py-2 bg-gray-200 rounded-md"
+              className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition-all"
               onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
             >
               -
             </button>
             <span className="text-lg font-medium">{quantity}</span>
             <button
-              className="px-4 py-2 bg-gray-200 rounded-md"
+              className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition-all"
               onClick={() => setQuantity(quantity + 1)}
             >
               +
@@ -103,11 +121,11 @@ const Cart = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-4">
-            <button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+          <div className="flex flex-wrap gap-4">
+            <button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all">
               Savatga
             </button>
-            <button className="px-6 py-3 bg-gray-200 rounded-md hover:bg-gray-300">
+            <button className="px-6 py-3 bg-gray-200 rounded-md hover:bg-gray-300 transition-all">
               Ulashish
             </button>
           </div>
@@ -117,4 +135,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default DetailProduct;

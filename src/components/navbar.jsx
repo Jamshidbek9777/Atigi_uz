@@ -102,15 +102,21 @@ const Navbar = () => {
 
           {/* Logo and Title */}
           <div className="flex gap-[40px] justify-center items-center">
-            <div className="flex items-center gap-2">
-              <img className="w-[70px]" src="/img/logo2.png" alt="ATIGI logo" />
-              <h1
-                className="text-[24px] text-[#3F2997] "
-                style={{ fontFamily: "'Seymour One', serif" }}
-              >
-                Atigi uz
-              </h1>
-            </div>
+            <a href="/">
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-[70px]"
+                  src="/img/logo2.png"
+                  alt="ATIGI logo"
+                />
+                <h1
+                  className="text-[24px] text-[#3F2997] "
+                  style={{ fontFamily: "'Seymour One', serif" }}
+                >
+                  Atigi uz
+                </h1>
+              </div>
+            </a>
 
             <div
               className="md:flex px-4 h-[44px] bg-white  hover:bg-[#B0ECFE] transition-all ease-in-out  rounded-[10px] cursor-pointer hidden items-center gap-2 select-none"

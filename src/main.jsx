@@ -7,7 +7,7 @@ import Topbar from "./components/topbar.jsx";
 import { ConfigProvider } from "antd";
 import "antd/dist/reset.css";
 import { theme } from "./theme/theme.js";
-import Cart from "./pages/cart.jsx";
+import DetailProduct from "./pages/detail.jsx";
 
 const Root = () => {
   return (
@@ -18,7 +18,7 @@ const Root = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<App />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/detail" element={<DetailProduct />} />
           </Routes>
         </BrowserRouter>
       </ConfigProvider>
