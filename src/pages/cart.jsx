@@ -159,7 +159,7 @@ const Cart = () => {
                         <p className="text-sm">Yo'q qilish</p>
                       </div>
 
-                      <div className="border p-2 rounded-lg text-center flex flex-row md:flex-col gap-4 items-center">
+                      <div className=" p-2 rounded-lg text-center flex flex-col gap- md:gap-0 items-center">
                         <p className="line-through text-red-500 text-sm">
                           {product.oldPrice} sum
                         </p>
