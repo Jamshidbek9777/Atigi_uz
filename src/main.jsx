@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { ConfigProvider } from "antd";
 import App from "./App.jsx";
 import "./index.css";
-import "antd/dist/reset.css";
+// import "antd/dist/reset.css";
 
 import { theme } from "./theme/theme.js";
 import Navbar from "./components/navbar.jsx";
