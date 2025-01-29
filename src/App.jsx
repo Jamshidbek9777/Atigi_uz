@@ -14,9 +14,9 @@ function App() {
           <div className="flex gap-0 md:gap-4 mt-4">
             {/* Sidebar */}
 
-            <div className="col-span-2">
+            {/* <div className="col-span-2">
               <Sidebar />
-            </div>
+            </div> */}
 
             {/* Products Grid */}
             <div className="col-span-10">

@@ -3,7 +3,6 @@ const token = {
 };
 
 const components = {
-  //   Button: {},
   Dropdown: {
     controlItemBgActive: "red",
     controlItemBgHover: "#F0F0F0",
