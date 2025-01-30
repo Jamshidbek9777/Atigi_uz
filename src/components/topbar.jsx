@@ -13,7 +13,9 @@ const Topbar = () => {
             <h1 className="text-white">40% off dutch sweets only today!</h1>
           </div>
           <div className="flex gap-3">
-            <div className="text-white">Contact</div>
+            <a href="/contact">
+              <div className="text-white">Contact</div>
+            </a>
             <div className="text-white">About us</div>
           </div>
         </div>

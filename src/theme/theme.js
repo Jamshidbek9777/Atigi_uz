@@ -10,6 +10,14 @@ const components = {
     colorText: "black",
     colorTextHover: "blue",
   },
+  Input: {
+    controlHeight: 40,
+    borderRadius: 10,
+  },
+  Button: {
+    controlHeight: 40,
+    borderRadius: 10,
+  },
 };
 
 export const theme = {

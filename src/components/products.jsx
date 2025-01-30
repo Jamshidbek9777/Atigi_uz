@@ -6,66 +6,21 @@ import { Navigation, Pagination } from "swiper/modules";
 import { HiShoppingCart } from "react-icons/hi";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { TbFilter } from "react-icons/tb";
+import { api } from "../services/api/api";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchData = async (endpoint) => {
+  const response = await api.get(endpoint);
+  console.log(response.data);
+
+  return response.data;
+};
 
 const ProductsGrid = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Radioboshqaruvli mashina bolalar uchun,pultli Lamborghini uchun,pultli Lamborghiniuchun,pultli Lamborghini",
-      price: 199000,
-      oldPrice: 229000,
-      images: ["/img/product.jpeg", "/img/product.jpeg", "/img/product.jpeg"],
-    },
-    {
-      id: 2,
-      name: "Lego",
-      price: 150000,
-      oldPrice: 180000,
-      images: ["/img/product.jpeg", "/img/product.jpeg", "/img/product.jpeg"],
-    },
-    {
-      id: 3,
-      name: "Lego",
-      price: 150000,
-      oldPrice: 180000,
-      images: ["/img/product2.jpeg", "/img/product.jpeg", "/img/product.jpeg"],
-    },
-    {
-      id: 4,
-      name: "Radioboshqaruvli mashina bolalar uchun,pultli Lamborghini uchun,pultli Lamborghiniuchun,pultli Lamborghini",
-      price: 199000,
-      oldPrice: 229000,
-      images: ["/img/product.jpeg", "/img/product2.jpeg", "/img/product.jpeg"],
-    },
-    {
-      id: 5,
-      name: "Lego",
-      price: 150000,
-      oldPrice: 180000,
-      images: ["/img/product.jpeg", "/img/product.jpeg", "/img/product.jpeg"],
-    },
-    {
-      id: 6,
-      name: "Lego",
-      price: 150000,
-      oldPrice: 180000,
-      images: ["/img/product2.jpeg", "/img/product2.jpeg", "/img/product.jpeg"],
-    },
-    {
-      id: 7,
-      name: "Radioboshqaruvli mashina bolalar uchun,pultli Lamborghini uchun,pultli Lamborghiniuchun,pultli Lamborghini",
-      price: 199000,
-      oldPrice: 229000,
-      images: ["/img/product.jpeg", "/img/product2.jpeg", "/img/product.jpeg"],
-    },
-    {
-      id: 8,
-      name: "Lego",
-      price: 150000,
-      oldPrice: 180000,
-      images: ["/img/product2.jpeg", "/img/product.jpeg", "/img/product.jpeg"],
-    },
-  ];
+  const { data: products, isLoading: productsLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => fetchData("/products/products/"),
+  });
 
   return (
     <main>
@@ -75,8 +30,8 @@ const ProductsGrid = () => {
           <TbFilter size={30} />
         </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        {products.map((product) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {products?.map((product) => (
           <div
             key={product.id}
             className="bg-white rounded-lg shadow p-2 flex flex-col justify-between"
@@ -106,7 +61,7 @@ const ProductsGrid = () => {
                   {product.images.map((img, index) => (
                     <SwiperSlide key={index}>
                       <img
-                        src={img}
+                        src={img.image}
                         alt={`${product.name} - ${index}`}
                         className="object-cover w-full h-[234px] transition-transform duration-300 hover:scale-105"
                       />

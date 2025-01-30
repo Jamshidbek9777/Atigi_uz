@@ -7,6 +7,7 @@ import { IoMdCart } from "react-icons/io";
 import { Dropdown, Menu } from "antd";
 import { Link } from "react-router-dom";
 import { TiThListOutline } from "react-icons/ti";
+import Search from "./search";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -140,23 +141,9 @@ const Navbar = () => {
               </Dropdown>
             </div>
           </div>
-
-          <div className=" hidden md:flex-grow mx-4 justify-center  md:flex">
-            <div className="relative w-full max-w-[650px]">
-              <input
-                type="text"
-                placeholder="Search..."
-                className="w-full px-4 h-[44px] rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-500  "
-                style={{
-                  boxShadow: "0 0px 4px 0px rgba(61, 42, 153, 0.3)",
-                }}
-              />
-              <div className="absolute inset-y-0 right-3 flex items-center">
-                <IoSearch />
-              </div>
-            </div>
+          <div className="hidden md:flex w-[350px] 2xl:w-[550px] xl:w-[450px]   justify-center mx-4">
+            <Search />
           </div>
-
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center gap-[2px] cursor-pointer hover:bg-[#B0ECFE] p-2 rounded-[10px] transition-all ease-in-out">
               <PiGlobeSimpleBold size={30} color="#3D2A99" />

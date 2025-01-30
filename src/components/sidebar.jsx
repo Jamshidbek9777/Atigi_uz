@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { Checkbox, Collapse, Radio, Button, Input } from "antd";
-import { DownOutlined, UpOutlined } from "@ant-design/icons";
+import { api } from "../services/api/api";
+import { useQuery } from "@tanstack/react-query";
 
 const { Panel } = Collapse;
+
+const fetchData = async (endpoint) => {
+  const response = await api.get(endpoint);
+  console.log(response.data);
+
+  return response.data;
+};
 
 const Sidebar = () => {
   // State for filters
@@ -12,7 +20,17 @@ const Sidebar = () => {
   const [selectedGender, setSelectedGender] = useState(null);
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
 
-  const [activePanel, setActivePanel] = useState("1"); // Controls open panel
+  // Fetch
+  const {
+    data: brands,
+    isLoading: brandsLoading,
+    // error: brandsError,
+  } = useQuery({
+    queryKey: ["brands"],
+    queryFn: () => fetchData("/products/brands/"),
+  });
+
+  const [activePanel, setActivePanel] = useState("1");
 
   // Handlers for filters
   const handleTypeChange = (chekedType) => setselectedTypes(chekedType);
@@ -35,7 +53,7 @@ const Sidebar = () => {
       price: { min: priceRange.min, max: priceRange.max },
     };
     console.log("Filters to send:", filters);
-    // Send filters to API here
+    // post api
   };
 
   // Function to toggle panels
@@ -122,21 +140,21 @@ const Sidebar = () => {
                 onChange={handleBrandChange}
               >
                 <div className="flex flex-col gap-2 text-2xl">
-                  {[
-                    "Abtoys",
-                    "All About Nature ",
-                    "Auby ",
-                    "Angel Collection ",
-                    "Angel Collection",
-                  ].map((typeItem) => (
-                    <Checkbox
-                      key={typeItem}
-                      value={typeItem}
-                      className="mb-2 text-[16px]"
-                    >
-                      {typeItem}
-                    </Checkbox>
-                  ))}
+                  {brandsLoading ? (
+                    <p>Loading brands...</p>
+                  ) : brands.length > 0 ? (
+                    brands.map((brand) => (
+                      <Checkbox
+                        key={brand.id}
+                        value={brand.name}
+                        className="mb-2 text-[16px]"
+                      >
+                        {brand.name}
+                      </Checkbox>
+                    ))
+                  ) : (
+                    <p>No brands found</p>
+                  )}
                 </div>
               </Checkbox.Group>
             </Panel>
